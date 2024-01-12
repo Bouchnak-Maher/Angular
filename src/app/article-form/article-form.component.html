@@ -1,0 +1,47 @@
+
+<div class="example-form-container">
+  <h1 class="text-align-center">Nouveau Publication</h1>
+  <form [formGroup]="form" (ngSubmit)="OnSubmit()" class="example-form">
+
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Titre</mat-label>
+        <input matInput name="titre" formControlName="titre" placeholder="Titre" [value]="form.get('titre')?.value" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Type</mat-label>
+        <input matInput name="type" formControlName="type" placeholder="type" [value]="form.get('type')?.value" >
+      </mat-form-field>
+
+
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Lien</mat-label>
+        <input matInput name="lien" formControlName="lien" placeholder="lien" [value]="form.get('lien')?.value" >
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Date de publication</mat-label>
+        <input matInput formControlName="date" [matDatepicker]="pickerDateNaissance" [value]="form.get('date')?.value | date:'yyyy-MM-dd'">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerDateNaissance"></mat-datepicker-toggle>
+        <mat-datepicker #pickerDateNaissance></mat-datepicker>
+      </mat-form-field>
+
+
+    </div>
+
+
+
+
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <button mat-fab extended color="primary" type="submit">
+        <mat-icon>change_history</mat-icon>
+        Submit
+      </button>
+    </div>
+
+  </form>
+</div>

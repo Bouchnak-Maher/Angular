@@ -1,0 +1,14 @@
+/* Example CSS file: e.g., your-component.component.scss */
+
+/* Change the toolbar background color to a darker shade for contrast */
+mat-toolbar {
+  background-color: #d32f2f; /* Darker grey */
+  color: white; /* White color for text for better readability */
+}
+
+/* Change icon color for better visibility */
+mat-toolbar mat-icon {
+  color: white;
+}
+
+

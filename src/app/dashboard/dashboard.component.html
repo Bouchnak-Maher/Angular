@@ -1,38 +1,77 @@
 <!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs -->
 <!-- flex layout demo -->
 <!-- auth guard (bech baad manaamel login maach tjini el page login) -->
-<div fxLayout="row" fxLayoutAlign="space-evenly center"  >
+<div class="container">
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Members</mat-card-title>
+    <div class="row">
+    <div class="col title-container">
+      <mat-card-title>Members</mat-card-title>
+      <div class="title-line"></div> <!-- Line under the title -->
+    </div>
+    <div class="col">
+
     <mat-card-subtitle>{{nb_members}}</mat-card-subtitle>
+    </div>
+    </div>
   </mat-card-header>
+
 </mat-card>
 
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Articles</mat-card-title>
-    <mat-card-subtitle>{{nb_articles}}</mat-card-subtitle>
+    <div class="row">
+      <div class="col title-container">
+        <mat-card-title>Articles</mat-card-title>
+        <div class="title-line"></div> <!-- Line under the title -->
+      </div>
+      <div class="col">
+
+        <mat-card-subtitle>{{nb_articles}}</mat-card-subtitle>
+      </div>
+    </div>
   </mat-card-header>
+
 </mat-card>
 
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Tools</mat-card-title>
-    <mat-card-subtitle>{{nb_tools}}</mat-card-subtitle>
+    <div class="row">
+      <div class="col title-container">
+        <mat-card-title>Tools</mat-card-title>
+        <div class="title-line"></div> <!-- Line under the title -->
+      </div>
+      <div class="col">
+
+        <mat-card-subtitle>{{nb_tools}}</mat-card-subtitle>
+      </div>
+    </div>
   </mat-card-header>
+
 </mat-card>
 
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Events</mat-card-title>
-    <mat-card-subtitle>{{nb_events}}</mat-card-subtitle>
+    <div class="row">
+      <div class="col title-container">
+        <mat-card-title>Events</mat-card-title>
+        <div class="title-line"></div> <!-- Line under the title -->
+      </div>
+      <div class="col">
+
+        <mat-card-subtitle>{{nb_events}}</mat-card-subtitle>
+      </div>
+    </div>
   </mat-card-header>
+
 </mat-card>
 
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-evenly center"  >
+  <div class="chart-card-wrapper">
+    <mat-card-content>
 <div class="chart-wrapper">
   <canvas baseChart
             [type]="'line'"
@@ -42,7 +81,25 @@
       >
     </canvas>
   </div>
+    </mat-card-content>
+  </div>
 
+  <div class="chart-card-wrapper">
+    <mat-card-content>
+      <div class="chart-wrapper">
+        <canvas baseChart
+                [type]="'line'"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+        >
+        </canvas>
+      </div>
+    </mat-card-content>
+  </div>
+  <!-- Wrapper for the pie chart -->
+  <div class="chart-card-wrapper">
+    <mat-card-content>
   <div class="chart-wrapper">
     <canvas baseChart
             [type]="'pie'"
@@ -52,4 +109,7 @@
       >
     </canvas>
   </div>
+    </mat-card-content>
+  </div>
+</div>
 </div>

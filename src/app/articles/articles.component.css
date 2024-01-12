@@ -1,9 +1,49 @@
-.example-container {
-  margin-top: 2%;
-  margin-bottom: 2%;
-  width: 90%;
-  max-width: 100%;
-  /* border-radius: 15px; */
-  position: relative;
-  overflow: auto;
+
+.chart-card-wrapper {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  width: calc(50% - 400px); /* Adjust the width here */
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
+mat-card-header{
+  margin-bottom: 20px;
+}
+/* your-component.component.scss */
+mat-card-actions p {
+  color: grey; /* Set text color to grey */
+  margin:5px 5px 0; /* Reduce space between action items */
+  font-size: 0.9rem; /* Optionally adjust font size */
+}
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rounded-button {
+  border-radius: 200px;
+
+  /* Rounded button */
+}
+
+mat-icon{
+  color: #314ec0;
+  padding-left: 0.5em;
+}
+/* Ensure the header content and button are aligned properly */
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+mat-card-title {
+  font-size: 1.5rem; /* Adjust title size */
+  color: #333333;
+  display: block;
+  margin-bottom: 10px; /* Ensure space for the line */
+  font-weight: bold;
+}
+/* Additional styles as needed */

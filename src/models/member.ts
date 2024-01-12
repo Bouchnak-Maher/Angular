@@ -22,7 +22,8 @@ export interface Member
   etablissement?: string
   pubs : Publication[],
   outils : Tool[],
-  events : Evenement[]
+  events : Evenement[],
+
 
 
 }

@@ -10,6 +10,7 @@ import { Etudiant } from 'src/models/etudiant';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AffecterEnseignantComponent } from '../affecter-enseignant/affecter-enseignant.component';
 import { Router } from '@angular/router';
+import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
 
 
 @Component({
@@ -103,15 +104,34 @@ export class MemberComponent implements AfterViewInit, OnInit{
   }
 
   deleteEnseignant(memberId: number){
-    this.MS.deleteEnseignant(memberId).subscribe(()=>{
-      this.loadMembers();
-    })
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '250px',
+      data: { title: 'Confirm Delete', message: 'Are you sure you want to delete this publication?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.MS.deleteEnseignant(memberId).subscribe(()=>{
+          this.loadMembers();
+        })
+      }
+    });
   }
+
+
 
   deleteEtudiant(memberId: number){
-    this.MS.deleteEtudiant(memberId).subscribe(()=>{
-      this.loadMembers();
-    })
-  }
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '250px',
+      data: { title: 'Confirm Delete', message: 'Are you sure you want to delete this publication?' }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.MS.deleteEtudiant(memberId).subscribe(()=>{
+          this.loadMembers();
+        })
+      }
+    });
+  }
 }

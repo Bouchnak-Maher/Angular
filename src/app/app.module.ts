@@ -53,6 +53,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ConsulterMemberComponent } from './consulter-member/consulter-member.component';
 import { ConsulterInvitesComponent } from './consulter-invites/consulter-invites.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { ArticleFormComponent } from './article-form/article-form.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AffecterMemberComponent,
     ConsulterMemberComponent,
     ConsulterInvitesComponent,
+    ArticleFormComponent,
+    ConfirmationDialogComponent,
 
 
   ],
@@ -111,7 +116,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatSortModule,
     MatPaginatorModule,
     MatChipsModule,
-    DragDropModule
+    DragDropModule,
+    MatProgressBarModule
 
 
   ],

@@ -11,6 +11,7 @@ import { EventCreateComponent } from './event-create/event-create.component';
 import { ToolsCreateComponent } from './tools-create/tools-create.component';
 import { EnseignantFormComponent } from './enseignant-form/enseignant-form.component';
 import { EtudiantFormComponent } from './etudiant-form/etudiant-form.component';
+import {ArticleFormComponent} from "./article-form/article-form.component";
 
 // pathMatch : maycharjiha ella mayel9a kelmet 'members'
 // lkol sinon yredirectih vers un path ena nakhtarou
@@ -20,7 +21,11 @@ import { EtudiantFormComponent } from './etudiant-form/etudiant-form.component';
 const routes: Routes = [
 
   {path:'dashboard', pathMatch:'full', component:DashboardComponent},
-  {path:'articles', pathMatch:'full', component:ArticlesComponent},
+  {path:'articles', children:[
+      {path: '', pathMatch:'full', component:ArticlesComponent},
+      {path:'create', pathMatch:'full', component:ArticleFormComponent},
+      {path:'edit/:id', pathMatch:'full', component:ArticleFormComponent},
+    ]},
 
   {path:'enseignant/create', pathMatch:'full', component:EnseignantFormComponent},
   {path:'etudiant/create', pathMatch:'full', component:EtudiantFormComponent},

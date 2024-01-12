@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Tools Form</h2>
+
+<mat-dialog-content [formGroup]="form" fxLayout="column" fxLayoutAlign="space-evenly center">
+  <mat-form-field>
+    <mat-label>nom de l'outil</mat-label>
+    <input matInput placeholder="Pupitre XYZ" formControlName="nom" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>date de creation</mat-label>
+    <input matInput formControlName="date" [matDatepicker]="pickerDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix  [for]="pickerDate"></mat-datepicker-toggle>
+    <mat-datepicker #pickerDate></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>source</mat-label>
+    <input matInput placeholder="google.com" formControlName="source" />
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <mat-label>createur</mat-label>
+    <mat-select formControlName="createur">
+        <mat-option *ngFor="let member of members" [value]="member">{{member.prenom}} {{member.nom}}</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="space-evenly center" >
+  <button mat-raised-button color="primary" (click)="close()"> Quitter</button>
+  <button mat-raised-button color="warn" (click)="save()"> Soumettre</button>
+</mat-dialog-actions>

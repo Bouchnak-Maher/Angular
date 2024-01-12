@@ -1,0 +1,55 @@
+
+
+<div class="example-form-container">
+  <h1 class="text-align-center">Nouveau Enseignant</h1>
+  <form [formGroup]="form" (ngSubmit)="OnSubmit()" class="example-form">
+    <!-- Your form fields go here -->
+    <div class="form-row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CIN</mat-label>
+        <input matInput name="cin" formControlName="cin" placeholder="11143686"  [value]="form.get('cin')?.value">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput name="nom" formControlName="nom" placeholder="John" [value]="form.get('nom')?.value">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Prénom</mat-label>
+        <input matInput name="prenom" formControlName="prenom" placeholder="Whick" [value]="form.get('prenom')?.value" >
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date de naissance</mat-label>
+        <input matInput formControlName="dateNaissance" [matDatepicker]="pickerDateNaissance" [value]="form.get('dateNaissance')?.value | date:'yyyy-MM-dd'">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="pickerDateNaissance"></mat-datepicker-toggle>
+        <mat-datepicker #pickerDateNaissance></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CV</mat-label>
+        <input matInput name="cv" formControlName="cv" placeholder="facebook.com/dali.mnassar"  [value]="form.get('cv')?.value">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Grade</mat-label>
+        <input matInput name="grade" formControlName="grade" [value]="form.get('diplome')?.value">
+      </mat-form-field>
+      <mat-form-field class="example-full-width centered-form-field" appearance="fill">
+        <mat-label>Etablissement</mat-label>
+        <input matInput name="etablissement" formControlName="etablissement"  [value]="form.get('sujet')?.value" >
+      </mat-form-field>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <button mat-fab extended color="primary" type="submit">
+        <mat-icon>change_history</mat-icon>
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

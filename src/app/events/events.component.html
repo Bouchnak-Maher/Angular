@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <button mat-raised-button color="primary" routerLink="create">
+    Créer une nouvelle évènement
+  </button>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
+  <h1> Evenements </h1>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. John/1"
+      #input
+    />
+  </mat-form-field>
+
+</div>
+
+<div class="cards mat-elevation-z8">
+
+    <mat-card *ngFor="let card of obs | async" class="event-card">
+      <mat-card-header>
+
+        <mat-card-title>{{ card.titre }}</mat-card-title>
+        <mat-card-subtitle class="dates" fxLayout="row" fxLayoutAlign="space-around center" >
+          <mat-icon>event</mat-icon>
+          {{ card.dateDebut | date }} - {{ card.dateFin | date }}
+          <mat-icon> location_on</mat-icon> {{ card.lieu }}
+          <button mat-icon-button matTooltip="Afficher la liste des invités" color="green" (click)="consulter(card.id)">
+            <mat-icon>spa</mat-icon>
+          </button>
+        </mat-card-subtitle>
+
+      </mat-card-header>
+      <mat-card-content>
+
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="space center">
+        <button mat-icon-button matTooltip="Modifier" routerLink="event/{{ card.id }}/edit" color="primary" >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Inviter" color="accent" (click)="affecter(card.id)" >
+          <mat-icon>group_add</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Supprimer" color="warn" (click)="delete(card.id)" >
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <mat-paginator
+    [pageSizeOptions]="[6, 12, 18, 24]"
+    aria-label="Select page of events"
+  ></mat-paginator>
+

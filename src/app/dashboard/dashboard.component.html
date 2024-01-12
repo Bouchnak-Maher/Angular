@@ -1,0 +1,55 @@
+<!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs -->
+<!-- flex layout demo -->
+<!-- auth guard (bech baad manaamel login maach tjini el page login) -->
+<div fxLayout="row" fxLayoutAlign="space-evenly center"  >
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Members</mat-card-title>
+    <mat-card-subtitle>{{nb_members}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Articles</mat-card-title>
+    <mat-card-subtitle>{{nb_articles}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Tools</mat-card-title>
+    <mat-card-subtitle>{{nb_tools}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Events</mat-card-title>
+    <mat-card-subtitle>{{nb_events}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-evenly center"  >
+<div class="chart-wrapper">
+  <canvas baseChart
+            [type]="'line'"
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      >
+    </canvas>
+  </div>
+
+  <div class="chart-wrapper">
+    <canvas baseChart
+            [type]="'pie'"
+      [datasets]="chartTypeData"
+      [labels]="chartTypesLabel"
+      [options]="chartOptions"
+      >
+    </canvas>
+  </div>
+</div>

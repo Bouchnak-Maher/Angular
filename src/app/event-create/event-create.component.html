@@ -1,0 +1,31 @@
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Titre</mat-label>
+      <input matInput name="titre" formControlName="titre" placeholder="ENIS"  [value]="form.get('titre')?.value" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
+        <input matStartDate formControlName="dateDebut" placeholder="Start date"  [value]="form.get('dateDebut')?.value" />
+        <input matEndDate formControlName="dateFin" placeholder="End date"  [value]="form.get('dateFin')?.value"/>
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Lieu</mat-label>
+      <input matInput name="lieu" formControlName="lieu" placeholder="Sfax"  [value]="form.get('lieu')?.value" />
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <button mat-fab extended color="primary" type="submit">
+        <mat-icon>change_history</mat-icon>
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

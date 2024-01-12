@@ -1,0 +1,42 @@
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.event-card {
+  min-width: 300px;
+  margin: 10px;
+  flex-basis: calc(25% - 2 * 10px);
+  margin-bottom: 16px;
+}
+
+.card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff; /* Use your preferred color */
+}
+
+.card-container {
+  padding: 16px;
+}
+
+/* Optional: Add some hover effect for better user interaction */
+.event-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.txt-date-debut{
+  color: greenyellow
+}
+
+.txt-date-fin{
+  color: red
+}
+.dates{
+  font-size: 11px;
+
+}

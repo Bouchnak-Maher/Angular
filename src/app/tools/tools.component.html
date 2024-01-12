@@ -1,0 +1,62 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <button mat-raised-button (click)="openToolCreate()">
+    Créer un nouveau outil
+  </button>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
+  <h1> Outils </h1>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. John/1"
+      #input
+    />
+  </mat-form-field>
+
+</div>
+<div class="cards mat-elevation-z8">
+
+  <mat-card *ngFor="let card of obs | async" class="event-card">
+
+
+        <div class="card-header">
+          <span>Outil N° {{ card.id }}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <div class="card-content" fxLayout="column" fxLayoutAlign="space-around begin" >
+            <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>work_outline</mat-icon> <span class="prop">{{card.nom}}</span></p>
+            <p fxLayout="row" fxLayoutAlign="begin center">	<mat-icon>today</mat-icon><span class="prop">{{ card.date }}</span></p>
+            <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>polymer</mat-icon> <span class="prop">{{ card.source }}</span></p>
+
+
+          </div>
+          <div class="card-content" fxLayout="column" fxLayoutAlign="space-around begin" >
+
+            <button mat-icon-button matTooltip="Voir contributeur" (click)="consulter(card.id)">
+              <mat-icon>gesture</mat-icon>
+            </button>
+
+              <button mat-icon-button matTooltip="Soussigner un créateur"  (click)="affecter(card.id)">
+                <mat-icon>queue</mat-icon>
+              </button>
+
+
+          </div>
+        </div>
+
+
+      <!-- Row shown when there is no matching data. -->
+
+
+  </mat-card>
+</div>
+<mat-paginator
+  [pageSizeOptions]="[6, 12, 18, 24]"
+  aria-label="Select page of tools"
+></mat-paginator>
+
+
+
+

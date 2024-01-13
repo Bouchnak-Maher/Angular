@@ -35,7 +35,7 @@ export class ArticleFormComponent {
       type: new FormControl(pub.type, [Validators.required]),
       lien: new FormControl(pub.lien, [Validators.required]),
       date: new FormControl(pub.date, [Validators.required]),
-      sourcepdf: new FormControl(pub.sourcepdf, [Validators.required]),
+      sourcePdf: new FormControl(pub.sourcePdf, [Validators.required]),
 
 
     })
@@ -61,6 +61,7 @@ export class ArticleFormComponent {
     // récupérer le contenu
 
     var pub = {...this.publicationGlobal, ...this.form.value};
+    console.log(pub)
     // const etudiantNew = {...etudiant,
     //   //  id: etudiant.id ?? Math.ceil(Math.random()*1000),
     //     // createdDate: etudiant.createdDate ?? new Date().toISOString()

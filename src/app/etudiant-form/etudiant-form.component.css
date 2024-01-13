@@ -6,6 +6,16 @@
   height: 90.5vh;
 }
 
+/* Add these styles to your component's CSS file or style block */
+
+.custom-mat-fab {
+  background-color: #ff4081; /* Change to your desired background color */
+  color: #ffffff; /* Change to your desired text/icon color */
+}
+
+.custom-mat-fab:hover {
+  background-color: #d81b60; /* Change to your desired background color on hover */
+}
 
 .example-form-container {
   width: 800px;

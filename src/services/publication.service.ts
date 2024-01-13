@@ -18,7 +18,7 @@ export class PublicationService {
 
   savePublication(publication: Publication): Observable<Publication>{
 
-    return this.httpClient.post<Publication>(`${API.url}/${API.publication}/publications/create`, publication);
+    return this.httpClient.post<Publication>(`${API.url}/${API.publication}/publications/add`, publication);
 
     //ken maandekch back-end
 

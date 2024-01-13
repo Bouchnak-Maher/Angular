@@ -7,7 +7,7 @@ export interface Publication{
   titre: string,
   lien: string,
   date: Date,
-  sourcepdf: string,
+  sourcePdf: string,
 
 
 }

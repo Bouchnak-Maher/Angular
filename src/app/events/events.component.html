@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <button mat-raised-button routerLink="create">
+  <button mat-raised-button color="primary" *ngIf="isAuthenticated" routerLink="create">
     Créer une nouvelle évènement
   </button>
 </div>
@@ -29,7 +29,7 @@
           {{ card.dateDebut | date }} - {{ card.dateFin | date }}
           <mat-icon> location_on</mat-icon> {{ card.lieu }}
           <button mat-icon-button matTooltip="Afficher la liste des invités" color="green" (click)="consulter(card.id)">
-            <mat-icon>spa</mat-icon>
+            <mat-icon>list</mat-icon>
           </button>
         </mat-card-subtitle>
 
@@ -38,13 +38,13 @@
 
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="space center">
-        <button mat-icon-button matTooltip="Modifier" routerLink="event/{{ card.id }}/edit" color="primary" >
+        <button *ngIf="isAuthenticated" mat-icon-button matTooltip="Modifier" routerLink="event/{{ card.id }}/edit" color="primary" >
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Inviter" color="accent" (click)="affecter(card.id)" >
+        <button *ngIf="isAuthenticated" mat-icon-button matTooltip="Inviter" color="accent" (click)="affecter(card.id)" >
           <mat-icon>group_add</mat-icon>
         </button>
-        <button mat-icon-button matTooltip="Supprimer" color="warn" (click)="delete(card.id)" >
+        <button *ngIf="isAuthenticated" mat-icon-button matTooltip="Supprimer" color="warn" (click)="delete(card.id)" >
           <mat-icon>delete</mat-icon>
         </button>
 

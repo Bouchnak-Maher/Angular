@@ -3,6 +3,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin: 10px;
+  margin-top: 5.2em;
   padding: 15px;
   width: calc(50% - 400px); /* Adjust the width here */
   display: block;
@@ -12,6 +13,7 @@
 mat-card-header{
   margin-bottom: 20px;
 }
+
 /* your-component.component.scss */
 mat-card-actions p {
   color: grey; /* Set text color to grey */

@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 import { Member } from 'src/models/member';
 import { AffecterMemberComponent } from '../affecter-member/affecter-member.component';
 import { ConsulterMemberComponent } from '../consulter-member/consulter-member.component';
+import { AuthService } from 'src/services/AuthService';
 
 @Component({
   selector: 'app-tools',
@@ -31,6 +32,7 @@ export class ToolsComponent implements AfterViewInit,OnInit, OnDestroy  {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  isAuthenticated: boolean = false;
 
   loadTools() : void{
     this.TS.getTools().subscribe(tools => {
@@ -56,7 +58,7 @@ export class ToolsComponent implements AfterViewInit,OnInit, OnDestroy  {
     private TS: ToolService,
     private MS: MemberService,
     private dialog: MatDialog,
-    private router: Router,
+    private router: Router,public authService: AuthService
   ) {
       this.loadTools();
   }
@@ -121,6 +123,9 @@ export class ToolsComponent implements AfterViewInit,OnInit, OnDestroy  {
 
   ngOnInit() {
     this.loadTools();
+    this.authService.afAuth.authState.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
   }
   ngAfterViewInit() {
 

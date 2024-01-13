@@ -14,8 +14,7 @@ export class AuthService {
         public afAuth: AngularFireAuth,
     ) {
     }
-
-
+   
     getUserClaims(): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             this.afAuth.onAuthStateChanged(user => {

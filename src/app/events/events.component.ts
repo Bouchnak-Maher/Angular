@@ -10,6 +10,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AffecterMemberComponent } from '../affecter-member/affecter-member.component';
 import { MemberService } from 'src/services/member.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/services/AuthService';
 
 
 
@@ -21,13 +22,15 @@ import { Router } from '@angular/router';
 export class EventsComponent implements OnInit, OnDestroy, AfterViewInit {
   displayedColumns: string[] = ["id", "titre", "dateDebut", "dateFin", "lieu"];
   dataSource: MatTableDataSource<Evenement>;
+  isAuthenticated: boolean = false;
+
   obs: Observable<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private ES: EvenementService, private MS: MemberService, private router:Router, private changeDetectorRef: ChangeDetectorRef,
-    private dialog: MatDialog) {}
+    private dialog: MatDialog,public authService: AuthService) {}
 
   loadEvents(): void {
     this.ES.getEvenements().subscribe(events => {
@@ -43,6 +46,9 @@ export class EventsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   ngOnInit() {
     this.loadEvents();
+    this.authService.afAuth.authState.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
   }
 
   ngAfterViewInit() {

@@ -11,12 +11,14 @@ export class LoginComponent {
 
   constructor(private authService:AuthService, private router:Router , private ngZone:NgZone){}
   tryGoogleLogin(): void
-  {
+  {  
+
     this.authService.doGoogleLogin().then(()=>{this.successRedirect()})
   }
 
   successRedirect(): void
   {
+
     this.ngZone.run(()=>this.router.navigate([ '/members']));
   }
 

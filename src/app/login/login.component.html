@@ -1,19 +1,20 @@
+<!-- Main container with column layout -->
+<div class="container">
+<div class="" fxLayout="column" fxLayoutAlign="space-evenly center">
 
-<div fxLayout="column" fxLayoutAlign="space-evenly center">
-<div class="custom-card">
-  <div class="card-content">
-    <div class="lab-text">Sign IN</div>
-  </div>
-</div>
+  <!-- Card for Sign In -->
+  <div class="custom-card">
+    <div class="card-content">
+      <div class="lab-text">Sign in</div>
 
-<div class="custom-card">
-  <div class="card-content">
-    <div class="welcome-text">
-      <p>Welcome to our Lab</p>
+      <div class="welcome-text">
+        <p>Welcome to our Lab</p>
+      </div>
+      <button mat-raised-button class="google-button" (click)="tryGoogleLogin()">
+        Sign in with Google
+      </button>
     </div>
-    <button mat-raised-button class="google-button" (click)="tryGoogleLogin()">
-      Sign in with Google
-    </button>
   </div>
+
 </div>
 </div>

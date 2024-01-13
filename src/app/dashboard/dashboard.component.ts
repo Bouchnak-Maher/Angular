@@ -21,9 +21,13 @@ export class DashboardComponent implements OnInit{
   // line
   chartData: ChartDataset[] = [
     {
-      // ⤵️ Add these
-      label: 'Tools par membre',
-      data: [2,1,4,5,2,6,8]
+      label: 'Tools per Member',
+      data: [2, 1, 4, 5, 2, 6, 8],
+      backgroundColor: 'rgba(0, 123, 255, 0.5)', // Light blue fill
+      borderColor: 'rgb(0, 123, 255)',           // Solid blue border
+      pointBackgroundColor: 'rgb(255, 255, 255)',// White points
+      pointBorderColor: 'rgb(0, 123, 255)',      // Blue borders for points
+      fill: true,                                // Fill area under the line
     }
   ];
   chartData1: ChartDataset[] = [
@@ -33,7 +37,9 @@ export class DashboardComponent implements OnInit{
       data: [6,2,1,8]
     }
   ];
-  chartLabels: string[] = [];
+  chartLabels: string[] = [
+"maher","ibrahim","mohamed","samir"
+  ];
   chartOptions: ChartOptions = {};
   // pie
   chartTypeData: ChartDataset[] = [
@@ -49,11 +55,11 @@ export class DashboardComponent implements OnInit{
   constructor (private ES: EvenementService, private TS: ToolService, private PS: PublicationService, private MS: MemberService)
   {
 
-     
 
-   
-    
-    
+
+
+
+
 
 
   }
@@ -61,16 +67,16 @@ export class DashboardComponent implements OnInit{
     const etudiantObservable = this.MS.getNumberPerMemberType().pipe(
       map((mapRole) => mapRole.get('etudiant'))
     );
-    
+
     const enseignantObservable = this.MS.getNumberPerMemberType().pipe(
       map((mapRole) => mapRole.get('enseignant'))
     );
-    
+
     forkJoin([etudiantObservable, enseignantObservable]).subscribe(([etudiantValue, enseignantValue]) => {
       if (etudiantValue !== undefined) {
         this.chartTypeData[0].data.push(etudiantValue);
       }
-    
+
       if (enseignantValue !== undefined) {
         this.chartTypeData[0].data.push(enseignantValue);
     }
@@ -87,26 +93,26 @@ export class DashboardComponent implements OnInit{
       });
       this.nb_tools = tools.length;
     })
-  
+
     this.ES.getEvenements().subscribe(event =>{
       event.forEach(element => {
-        
+
       });
       this.nb_events = event.length;
     })
      this.PS.getPublications().subscribe(publication =>{
       publication.forEach(element => {
-       
+
       });
       this.nb_articles = publication.length;
     })
-  
+
     this.MS.getEnseignants().subscribe(members => { members.forEach(element => {
-     
+
     });
     this.nb_events = members.length;
-  
-    
+
+
      })
   }
 

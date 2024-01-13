@@ -1,39 +1,46 @@
 :host {
-  margin-top: -2.2vh;
+  margin-top: -3vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90.5vh;
+  height: 100vh; /* Updated to 100vh to cover the full viewport height */
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://img.freepik.com/photos-gratuite/medecin-microbiologiste-prenant-tube-echantillon-sang-partir-rack-machines-analyse-arriere-plan-du-laboratoire_482257-527.jpg?size=626&ext=jpg&ga=GA1.2.1323025029.1702165536&semt=sph")
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Fix the background image */
+  background-image: linear-gradient(to right bottom, rgba(105, 172, 199, 0.8), rgba(162, 198, 182, 0.8)), url("https://img.freepik.com/photos-gratuite/medecin-microbiologiste-prenant-tube-echantillon-sang-partir-rack-machines-analyse-arriere-plan-du-laboratoire_482257-527.jpg?size=626&ext=jpg");
 }
 
 .custom-card {
   width: 500px;
-  height: 200px;
+  height: 180px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff; /* Couleur blanche pour la carte */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  backdrop-filter: blur(10px); /* Blur effect for the background */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 0.7em;
   padding: 20px;
 }
 
 .lab-text {
   font-size: 24px;
   font-weight: bold;
+  color: #333333; /* Darker color for better contrast */
   margin-bottom: 20px;
 }
 
-.welcome-text {
+.welcome-text p {
   text-align: center;
   font-size: 18px;
-  margin-bottom: 0px;
+  color: #2c3e50; /* A shade of dark blue for elegance */
+  margin-bottom: 20px;
 }
 
 .google-button {
@@ -42,12 +49,14 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  
+
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .google-button:hover {
   background-color: #317ae2;
+  transform: translateY(-2px); /* Slight lift effect on hover */
 }
+

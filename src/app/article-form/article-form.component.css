@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   height: 90.5vh;
-  background: linear-gradient(to bottom right,#425cb8 , #a8bbff);
 }
 
 
@@ -38,9 +37,4 @@
   /* Adjust the margin between form rows */
 
 }
-.submit-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  /* Adjust the margin at the top of the submit button */
-}
+

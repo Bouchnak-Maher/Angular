@@ -1,6 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <button mat-raised-button color="primary" routerLink="create">Create New Publication</button>
+  <button mat-raised-button routerLink="create">Create New Publication</button>
 </div>
+<div class="row">
 <div class="col-sm-6 chart-card-wrapper">
   <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
     <div>
@@ -26,6 +27,33 @@
     <p>Link: <a href="a">link</a></p>
     <p>Date: aze</p>
   </mat-card-actions>
+ </div>
+<div class="col-sm-6 chart-card-wrapper">
+  <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <mat-card-title>aa</mat-card-title>
+      <mat-card-subtitle>aze</mat-card-subtitle>
+    </div>
+    <button class="rounded-button" mat-button>
+      <mat-icon>picture_as_pdf</mat-icon>
+    </button>
+    <button
+      routerLink="edit/aze"
+      mat-icon-button
+      color="primary"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button (click)="deletePublication(1)" mat-icon-button>
+      <mat-icon color="warn">delete</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <mat-card-actions>
+    <p>Link: <a href="a">link</a></p>
+    <p>Date: aze</p>
+  </mat-card-actions>
+</div>
   <div class="col-sm-6 chart-card-wrapper" *ngFor="let publication of publications">
     <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
       <div>
@@ -52,4 +80,5 @@
       <p>Date: {{ publication.date }}</p>
     </mat-card-actions>
   </div>
+
 </div>

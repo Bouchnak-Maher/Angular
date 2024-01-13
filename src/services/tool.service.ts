@@ -19,7 +19,7 @@ export class ToolService {
 
   saveTool(tool: Tool): Observable<Tool>{
 
-    return this.httpClient.post<Tool>(`${API.url}/${API.tool}/outil/add`, tool);
+    return this.httpClient.post<Tool>(`${API.url}/${API.tool}/outils/add`, tool);
 
     //ken maandekch back-end
 
@@ -32,7 +32,7 @@ export class ToolService {
 
 
   updateTool(tool: Tool): Observable<Tool>{
-    return this.httpClient.put<Tool>(`${API.url}/${API.tool}/outil/update/${tool.id}`, tool);
+    return this.httpClient.put<Tool>(`${API.url}/${API.tool}/outils/update/${tool.id}`, tool);
   }
 
   deleteTool(id: number): Observable<void>{
@@ -41,7 +41,7 @@ export class ToolService {
   }
 
   getToolById(id: number): Observable<Tool>{
-    return this.httpClient.get<Tool>(`${API.url}/${API.tool}/tools/${id}`);
+    return this.httpClient.get<Tool>(`${API.url}/${API.tool}/outils/${id}`);
     //return new Observable((observer) => {observer.next(this.tab.find((event)=>event.id === id))});
   }
 

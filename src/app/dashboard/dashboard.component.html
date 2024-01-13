@@ -84,19 +84,6 @@
     </mat-card-content>
   </div>
 
-  <div class="chart-card-wrapper">
-    <mat-card-content>
-      <div class="chart-wrapper">
-        <canvas baseChart
-                [type]="'line'"
-                [datasets]="chartData"
-                [labels]="chartLabels"
-                [options]="chartOptions"
-        >
-        </canvas>
-      </div>
-    </mat-card-content>
-  </div>
   <!-- Wrapper for the pie chart -->
   <div class="chart-card-wrapper">
     <mat-card-content>
@@ -109,6 +96,20 @@
       >
     </canvas>
   </div>
+    </mat-card-content>
+  </div>
+  
+  <div class="chart-card-wrapper">
+    <mat-card-content>
+      <div class="chart-wrapper">
+        <canvas baseChart
+                [type]="'line'"
+                [datasets]="chartData1"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+        >
+        </canvas>
+      </div>
     </mat-card-content>
   </div>
 </div>

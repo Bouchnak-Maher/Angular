@@ -4,11 +4,14 @@
   justify-content: center;
   align-items: center;
   height: 90.5vh;
-  background: linear-gradient(to bottom right,#a8bbff , #314ec0);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://img.freepik.com/photos-gratuite/medecin-microbiologiste-prenant-tube-echantillon-sang-partir-rack-machines-analyse-arriere-plan-du-laboratoire_482257-527.jpg?size=626&ext=jpg&ga=GA1.2.1323025029.1702165536&semt=sph")
 }
 
 .custom-card {
-  width: 300px;
+  width: 500px;
+  height: 200px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff; /* Couleur blanche pour la carte */
@@ -30,7 +33,7 @@
 .welcome-text {
   text-align: center;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .google-button {
@@ -39,6 +42,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;

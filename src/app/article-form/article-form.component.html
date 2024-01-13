@@ -13,7 +13,10 @@
         <mat-label>Type</mat-label>
         <input matInput name="type" formControlName="type" placeholder="type" [value]="form.get('type')?.value" >
       </mat-form-field>
-
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Source Pdf</mat-label>
+        <input matInput name="sourcePdf" formControlName="sourcePdf" placeholder="type" [value]="form.get('sourcePdf')?.value" >
+      </mat-form-field>
 
 
       <mat-form-field appearance="fill" class="example-full-width">
@@ -37,10 +40,8 @@
 
 
     <div fxLayout="row" fxLayoutAlign="space-evenly center">
-      <button mat-fab extended color="primary" type="submit">
-        <mat-icon>change_history</mat-icon>
-        Submit
-      </button>
+      <button type="submit"mat-raised-button color="primary">Submit</button>
+
     </div>
 
   </form>

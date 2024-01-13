@@ -1,7 +1,11 @@
 
 
 <div class="example-form-container">
-  <h1 class="text-align-center">Nouveau Enseignant</h1>
+  <h1 *ngIf="!!idCourant1; else noStudent" class="text-align-center">Edit Enseignant</h1>
+  <ng-template #noStudent>
+    <h1 class="text-align-center">Nouveau Enseignant</h1>
+  </ng-template>
+  
   <form [formGroup]="form" (ngSubmit)="OnSubmit()" class="example-form">
     <!-- Your form fields go here -->
     <div class="form-row">
@@ -46,10 +50,8 @@
 
 
     <div fxLayout="row" fxLayoutAlign="space-evenly center">
-      <button mat-fab extended color="primary" type="submit">
-        <mat-icon>change_history</mat-icon>
-        Submit
-      </button>
+      <button type="submit"mat-raised-button color="primary">Submit</button>
+
     </div>
   </form>
 </div>

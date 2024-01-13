@@ -27,7 +27,10 @@ export class EvenementService {
   updateEvenement(event: Evenement): Observable<Evenement>{
     return this.httpClient.put<Evenement>(`${API.url}/${API.event}/evenements/update/${event.id}`, event);
   }
-
+  getFullYearsEvents(startYear: number, endYear: number): Observable<number[]> {
+    const url = `${API.url}/${API.event}/events/full-years-events/${startYear}/${endYear}`;
+    return this.httpClient.get<number[]>(url);
+  }
   deleteEvenement(id: number): Observable<void>{
     this.httpClient.delete<void>(`${API.url}/${API.member}/members-per-event/${id}/delete`);
     return this.httpClient.delete<void>(`${API.url}/${API.event}/events/${id}/delete`);

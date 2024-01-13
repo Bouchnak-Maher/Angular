@@ -57,6 +57,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
+
 @NgModule({
   declarations: [
 
@@ -79,6 +80,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ConsulterInvitesComponent,
     ArticleFormComponent,
     ConfirmationDialogComponent,
+    
 
 
   ],
@@ -117,7 +119,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatPaginatorModule,
     MatChipsModule,
     DragDropModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    
 
 
   ],

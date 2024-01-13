@@ -11,6 +11,7 @@ import {AngularFireAnalyticsModule, APP_NAME, APP_VERSION, ScreenTrackingService
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
         AngularFireAnalyticsModule,
+        AngularFireAuthModule
     ],
     exports: [
         AngularFireAuthModule,

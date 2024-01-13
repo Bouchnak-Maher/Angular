@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <button mat-raised-button (click)="openToolCreate()">
+  <button mat-raised-button *ngIf="isAuthenticated" (click)="openToolCreate()">
     Créer un nouveau outil
   </button>
 </div>
@@ -26,19 +26,19 @@
         </div>
         <div fxLayout="row" fxLayoutAlign="space-around center">
           <div class="card-content" fxLayout="column" fxLayoutAlign="space-around begin" >
-            <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>work_outline</mat-icon> <span class="prop">{{card.nom}}</span></p>
+            <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>settings</mat-icon> <span class="prop">{{card.nom}}</span></p>
             <p fxLayout="row" fxLayoutAlign="begin center">	<mat-icon>today</mat-icon><span class="prop">{{ card.date }}</span></p>
-            <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>polymer</mat-icon> <span class="prop">{{ card.source }}</span></p>
+            <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>assignment_returned</mat-icon> <span class="prop">{{ card.source }}</span></p>
 
 
           </div>
           <div class="card-content" fxLayout="column" fxLayoutAlign="space-around begin" >
 
             <button mat-icon-button matTooltip="Voir contributeur" (click)="consulter(card.id)">
-              <mat-icon>gesture</mat-icon>
+              <mat-icon>list</mat-icon>
             </button>
 
-              <button mat-icon-button matTooltip="Soussigner un créateur"  (click)="affecter(card.id)">
+              <button mat-icon-button matTooltip="Soussigner un créateur" *ngIf="isAuthenticated" (click)="affecter(card.id)">
                 <mat-icon>queue</mat-icon>
               </button>
 

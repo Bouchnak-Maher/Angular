@@ -27,11 +27,7 @@ export class MemberService {
     } else {
       return new Observable(observer => observer.error('Invalid member type'));
     }
-    //ken maandekch back-end
-
-    //this.tab.unshift(member);
-    //this.tab = [member, ...this.tab.filter(item=> item.id!= member.id)];
-    //return new Observable (observer => {observer.next()});
+   
   }
 
   updateMember(type:string, member: Member): Observable<Member>{
@@ -42,13 +38,12 @@ export class MemberService {
     } else {
       return new Observable(observer => observer.error('Invalid member type'));
     }
-    //ken maandekch back-end
-
-    //this.tab.unshift(member);
-    //this.tab = [member, ...this.tab.filter(item=> item.id!= member.id)];
-    //return new Observable (observer => {observer.next()});
+   
   }
-
+  getNumberPerMemberDiplome(): Observable<Record<string,number>>
+  {
+    return this.httpClient.get<Record<string,number>>(`${API.url}/${API.member}/members/members-per-diplome`);
+  }
   getMemberById(id: number): Observable<Member>{
     return this.httpClient.get<Member>(`${API.url}/members/${id}`);
     //return new Observable((observer) => {observer.next(this.tab.find((member)=>member.id === id))});
@@ -61,9 +56,15 @@ export class MemberService {
 
   getEnseignants(): Observable<Enseignant[]>{
     return this.httpClient.get<Enseignant[]>(`${API.url}/members/enseignants`);
-    //return new Observable((observer) => {observer.next(this.tab.find((member)=>member.id === id))});
   }
-
+  getNbOutilMembers(): Observable<number[]>
+  {
+    return this.httpClient.get<number[]>(`${API.url}/${API.member}/members/numberoutils`);
+  }
+  getNumberPerMemberGrade(): Observable<Record<string,number>>
+  {
+    return this.httpClient.get<Record<string,number>>(`${API.url}/${API.member}/members/members-per-grade`);
+  }
   getEtudiants(): Observable<Etudiant[]>{
     return this.httpClient.get<Etudiant[]>(`${API.url}/members/etudiants`);
     //return new Observable((observer) => {observer.next(this.tab.find((member)=>member.id === id))});
@@ -80,6 +81,7 @@ export class MemberService {
     return this.httpClient.get<number[]>(`${API.url}/members/numberpublications`);
   }
 
+ 
 
   getNumberPerMemberType(): Observable<Map<string, number>> {
     return this.httpClient.get<any>(`${API.url}/members/members-per-role`)

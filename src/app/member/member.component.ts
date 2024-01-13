@@ -11,6 +11,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AffecterEnseignantComponent } from '../affecter-enseignant/affecter-enseignant.component';
 import { Router } from '@angular/router';
 import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
+import { AuthService } from 'src/services/AuthService';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class MemberComponent implements AfterViewInit, OnInit{
 
   @ViewChild('enseignantPaginator') enseignantPaginator: MatPaginator;
   @ViewChild('etudiantPaginator') etudiantPaginator: MatPaginator;
+  isAuthenticated: boolean = false;
 
   loadMembers() : void{
     // Enseignants
@@ -51,12 +53,15 @@ export class MemberComponent implements AfterViewInit, OnInit{
     });
   }
 
-  constructor (private MS: MemberService,private dialog: MatDialog,  private router: Router){
+  constructor (private MS: MemberService,private dialog: MatDialog,  private router: Router,public authService: AuthService){
 
   }
 
   ngOnInit(){
     this.loadMembers();
+    this.authService.afAuth.authState.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
   }
   ngAfterViewInit() {
 
@@ -94,7 +99,7 @@ export class MemberComponent implements AfterViewInit, OnInit{
       this.MS.affectEtudiantToEnseignant(etudiant, data.encadrant).subscribe(()=>{
         // or manually add the tool to the existing list
         // this.dataSource.push(toolNew);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/members']);
         // Close the dialog
 
       });
@@ -106,7 +111,7 @@ export class MemberComponent implements AfterViewInit, OnInit{
   deleteEnseignant(memberId: number){
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '250px',
-      data: { title: 'Confirm Delete', message: 'Are you sure you want to delete this publication?' }
+      data: { title: 'Confirm Delete', message: 'Are you sure ?' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -123,7 +128,7 @@ export class MemberComponent implements AfterViewInit, OnInit{
   deleteEtudiant(memberId: number){
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '250px',
-      data: { title: 'Confirm Delete', message: 'Are you sure you want to delete this publication?' }
+      data: { title: 'Confirm Delete', message: 'Are you sure ?' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

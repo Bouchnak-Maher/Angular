@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <button mat-raised-button color="primary" routerLink="create">créer un nouveau membre</button>
+  <button mat-raised-button color="primary" *ngIf="isAuthenticated" routerLink="create">créer un nouveau membre</button>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center center">
@@ -64,9 +64,9 @@
               mat-icon-button
               color="primary"
             >
-              <mat-icon>edit</mat-icon>
+              <mat-icon *ngIf="isAuthenticated">edit</mat-icon>
             </button>
-            <button (click)="deleteEnseignant(element.id)" mat-icon-button>
+            <button *ngIf="isAuthenticated"(click)="deleteEnseignant(element.id)" mat-icon-button>
               <mat-icon color="warn">delete</mat-icon>
             </button>
           </td>
@@ -135,12 +135,12 @@
           <th mat-header-cell *matHeaderCellDef>ENCADRANT</th>
           <td mat-cell *matCellDef="let element">
             <ng-container *ngIf="element.encadrant != null; else affecterButton">
-              <button mat-stroked-button color="accent" (click)="affecter(element)">
+              <button mat-stroked-button *ngIf="isAuthenticated" color="accent" (click)="affecter(element)">
                 <mat-icon>pregnant_woman</mat-icon>
               </button> {{ element.encadrant.prenom }} {{ element.encadrant.nom }}
             </ng-container>
             <ng-template #affecterButton>
-              <button mat-stroked-button color="accent" (click)="affecter(element)">
+              <button mat-stroked-button color="accent" *ngIf="isAuthenticated"(click)="affecter(element)">
                 <mat-icon>pregnant_woman</mat-icon> Affecter
               </button>
             </ng-template>
@@ -167,9 +167,9 @@
               mat-icon-button
               color="primary"
             >
-              <mat-icon>edit</mat-icon>
+              <mat-icon *ngIf="isAuthenticated">edit</mat-icon>
             </button>
-            <button (click)="deleteEtudiant(element.id)" mat-icon-button>
+            <button *ngIf="isAuthenticated"(click)="deleteEtudiant(element.id)" mat-icon-button>
               <mat-icon color="warn">delete</mat-icon>
             </button>
           </td>

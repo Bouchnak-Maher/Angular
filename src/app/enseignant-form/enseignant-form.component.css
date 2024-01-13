@@ -6,7 +6,10 @@
   height: 90.5vh;
 }
 
+button{
+  background: #a61818;
 
+}
 .example-form-container {
   width: 800px;
   padding: 40px;

@@ -84,10 +84,7 @@ export class EventsComponent implements OnInit, OnDestroy, AfterViewInit {
     {
       console.log(data);
       this.MS.affectMemberToEvent(data.member.id, eventId).subscribe(()=>{
-        // or manually add the tool to the existing list
-        // this.dataSource.push(toolNew);
-       
-        // Close the dialog
+      
 
       });
     });

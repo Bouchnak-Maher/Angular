@@ -32,7 +32,8 @@ const routes: Routes = [
 
   {path:'tools', children:[
     {path: '', pathMatch:'full', component:ToolsComponent},
-    {path:'create', pathMatch:'full', component:ToolsCreateComponent}]},
+    {path:'create', pathMatch:'full', component:ToolsCreateComponent},
+    {path:'tool/:id/edit', pathMatch:'full', component:ToolsCreateComponent}]},
 
   {path:'events', children:[
     {path: '', pathMatch:'full', component:EventsComponent},

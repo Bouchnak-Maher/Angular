@@ -3,11 +3,12 @@
 <mat-dialog-content [formGroup]="form" fxLayout="column" fxLayoutAlign="space-evenly center">
   <mat-form-field>
     <mat-label>nom de l'outil</mat-label>
-    <input matInput placeholder="Pupitre XYZ" formControlName="nom" />
+    <input matInput placeholder="Pupitre XYZ" formControlName="nom" [value]="form.get('nom')?.value"/>
   </mat-form-field>
+  
   <mat-form-field>
     <mat-label>date de creation</mat-label>
-    <input matInput formControlName="date" [matDatepicker]="pickerDate">
+    <input matInput formControlName="date" [matDatepicker]="pickerDate" [value]="form.get('date')?.value">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix  [for]="pickerDate"></mat-datepicker-toggle>
     <mat-datepicker #pickerDate></mat-datepicker>
@@ -15,7 +16,7 @@
 
   <mat-form-field>
     <mat-label>source</mat-label>
-    <input matInput placeholder="google.com" formControlName="source" />
+    <input matInput placeholder="google.com" formControlName="source" [value]="form.get('source')?.value" />
   </mat-form-field>
 
   <!-- <mat-form-field>

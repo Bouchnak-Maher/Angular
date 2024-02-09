@@ -20,6 +20,32 @@ import { AuthService } from 'src/services/AuthService';
   styleUrls: ['./tools.component.css'],
 })
 export class ToolsComponent implements AfterViewInit,OnInit, OnDestroy  {
+openTooledit(arg: number) :void{
+  const dialogConfig = new MatDialogConfig();
+  
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+  dialogConfig.data = { arg };
+
+  const dialogRef = this.dialog.open(ToolsCreateComponent, dialogConfig);
+
+  dialogRef.afterClosed().subscribe((data) =>
+  {
+
+    const tool = {id:arg, ...data };
+    console.log(tool);
+    this.TS.updateTool(tool).subscribe((tool) => {
+      // Update the data source after saving the tool
+      this.loadTools();
+      // or manually add the tool to the existing list
+      // this.dataSource.push(toolNew);
+
+      // Close the dialog
+
+    });
+  });
+
+}
 
   obs: Observable<any>;
   dataSource: MatTableDataSource<Tool>;
@@ -75,7 +101,7 @@ export class ToolsComponent implements AfterViewInit,OnInit, OnDestroy  {
     {
 
       const tool = { ...data };
-
+      
       this.TS.saveTool(tool).subscribe((tool) => {
         // Update the data source after saving the tool
         this.loadTools();
@@ -103,7 +129,7 @@ export class ToolsComponent implements AfterViewInit,OnInit, OnDestroy  {
       this.MS.affectMemberToTool(data.member.id, toolId).subscribe(()=>{
         // or manually add the tool to the existing list
         // this.dataSource.push(toolNew);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/tools']);
         // Close the dialog
 
       });

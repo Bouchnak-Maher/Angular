@@ -27,13 +27,16 @@
         <div fxLayout="row" fxLayoutAlign="space-around center">
           <div class="card-content" fxLayout="column" fxLayoutAlign="space-around begin" >
             <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>settings</mat-icon> <span class="prop">{{card.nom}}</span></p>
+
             <p fxLayout="row" fxLayoutAlign="begin center">	<mat-icon>today</mat-icon><span class="prop">{{ card.date }}</span></p>
             <p fxLayout="row" fxLayoutAlign="begin center"> <mat-icon>assignment_returned</mat-icon> <span class="prop">{{ card.source }}</span></p>
 
 
           </div>
           <div class="card-content" fxLayout="column" fxLayoutAlign="space-around begin" >
-
+            <button *ngIf="isAuthenticated" mat-icon-button matTooltip="Modifier" (click)="openTooledit(card.id)" color="primary" >
+              <mat-icon>edit</mat-icon>
+            </button>
             <button mat-icon-button matTooltip="Voir contributeur" (click)="consulter(card.id)">
               <mat-icon>list</mat-icon>
             </button>

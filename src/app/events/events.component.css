@@ -15,7 +15,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #a61818; /* Use your preferred color */
+  background-color: #007bff; /* Use your preferred color */
 }
 
 .card-container {
@@ -30,6 +30,7 @@
 }
 
 .txt-date-debut{
+  color: greenyellow
 }
 
 .txt-date-fin{

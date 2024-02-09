@@ -27,7 +27,7 @@ export class EtudiantFormComponent {
       prenom: new FormControl(null, [Validators.required]),
       dateNaissance: new FormControl(null, [Validators.required]),
       cv: new FormControl(null, [Validators.required]),
-      // email: new FormControl(null, [Validators.required]),
+      email: new FormControl("aze@test.com", [Validators.required, Validators.email]),
       // password: new FormControl(null, [Validators.required]),
       // role : new FormControl("etudiant", [Validators.required]),
       // encadrant : new FormControl(null, [Validators.required]),
@@ -44,7 +44,7 @@ export class EtudiantFormComponent {
       prenom: new FormControl(etudiant.prenom, [Validators.required]),
       dateNaissance: new FormControl(etudiant.dateNaissance, [Validators.required]),
       cv: new FormControl(etudiant.cv, [Validators.required]),
-      // email: new FormControl(etudiant.email, [Validators.required, Validators.email]),
+      email: new FormControl("aze@test.com", [Validators.required, Validators.email]),
       // password: new FormControl(etudiant.password, [Validators.required]),
       // role : new FormControl(etudiant.role, [Validators.required]),
       // encadrant : new FormControl(etudiant.encadrant, [Validators.required]),
@@ -83,9 +83,12 @@ export class EtudiantFormComponent {
     // };
     if (!!this.idCourant1) // if truly idCourant  // je suis dans edit
     {
-      etudiant = {id:this.idCourant1, ...etudiant};
+      etudiant = {id:this.idCourant1, ...this.form.value};
+      console.log(etudiant)
       this.MS.updateMember("etudiant", etudiant).subscribe(()=> {this.router.navigate(['/members'])});
     }else{
+      console.log(etudiant)
+
       this.MS.saveMember("etudiant", etudiant).subscribe(()=> {this.router.navigate(['/members'])});
     }
 
